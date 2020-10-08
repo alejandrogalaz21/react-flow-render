@@ -129,11 +129,11 @@ export default () => {
   const [elements, setElements] = useState(initialElements)
   const onElementsRemove = elementsToRemove =>
     setElements(els => removeElements(elementsToRemove, els))
-  const onConnect = params => {
-    console.log('onConnect', params)
-    const newEdge = addEdge(params, elements)
-    console.log({ newEdge })
-    setElements(newEdge)
+  // connect edges
+  const handleOnConnect = params => {
+    console.log('handleOnConnect', params)
+    // set a new elements object
+    setElements(els => addEdge(params, els))
   }
 
   const onNodeDragStart = (event, node) => console.log('drag start', node)
@@ -148,8 +148,15 @@ export default () => {
     event.preventDefault()
     console.log('selection context menu', nodes)
   }
-  const onElementClick = (event, element) =>
+  // on click lister
+  const handleOnElementClick = (event, element) => {
     console.log(`${isNode(element) ? 'node' : 'edge'} click:`, element)
+    if (isNode(element)) {
+    }
+    if (!isNode(element)) {
+    }
+  }
+
   const onSelectionChange = elements => console.log('selection change', elements)
   const onLoad = reactFlowInstance => {
     console.log('flow loaded:', reactFlowInstance)
@@ -163,9 +170,9 @@ export default () => {
       <Container>
         <ReactFlow
           elements={elements}
-          onElementClick={onElementClick}
+          onElementClick={handleOnElementClick}
           onElementsRemove={onElementsRemove}
-          onConnect={onConnect}
+          onConnect={handleOnConnect}
           onPaneClick={onPaneClick}
           onPaneScroll={onPaneScroll}
           onPaneContextMenu={onPaneContextMenu}
