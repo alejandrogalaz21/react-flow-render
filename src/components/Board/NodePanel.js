@@ -9,7 +9,7 @@ export default function NodePanel({ elements, ...props }) {
   const handleOnSubmit = event => {
     event.preventDefault()
     if (label !== '') {
-      const id = elements.length + 1
+      const id = elements.length + 1 + ''
       const node = {
         id,
         type: 'default',

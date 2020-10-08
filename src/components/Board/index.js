@@ -20,8 +20,13 @@ export default () => {
   const snapGrid = [16, 16]
 
   const [elements, setElements] = useState(initialElements)
-  const onElementsRemove = elementsToRemove =>
-    setElements(els => removeElements(elementsToRemove, els))
+  const onElementsRemove = elementsToRemove => {
+    console.log('onElementsRemove', elementsToRemove)
+    const toRemove = elementsToRemove[0].id
+    const newElements = elements.filter(e => e.id != toRemove)
+    setElements(newElements)
+  }
+
   // connect edges
   const handleOnConnect = params => {
     console.log('handleOnConnect', params)
