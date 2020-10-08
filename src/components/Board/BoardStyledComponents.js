@@ -28,3 +28,13 @@ export const PanelColumn = styled.div`
   border-right: 1px solid #eee;
   padding: 2%;
 `
+export const BoardButton = styled.button`
+  background: #fefefe;
+  border-bottom: 1px solid #eee;
+  padding: 5px;
+
+  position: fixed;
+  left: 8;
+  top: 8;
+  z-index: 10;
+`

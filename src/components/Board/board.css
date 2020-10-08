@@ -1,0 +1,18 @@
+.input {
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 5px 10px;
+  outline: none;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: text-indent 0.4s 0.4s ease;
+  text-indent: -100%;
+  opacity: 1;
+}
+.btn-form {
+  padding: 0;
+  border: none;
+  background: none;
+  padding: 5px 10px;
+}
