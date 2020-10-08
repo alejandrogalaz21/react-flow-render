@@ -1,21 +1,8 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import { useStoreState, useStoreActions } from 'react-flow-renderer'
+import { useStoreState } from 'react-flow-renderer'
+import { ControlPanelContainer, PanelColumn } from './BoardStyledComponents'
 
-export const ControlPanelContainer = styled.div`
-  width: 100%;
-  height: 400px;
-  border-top: 1px solid #eee;
-  display: flex;
-  flex-direction: row;
-`
-
-export const PanelColumn = styled.div`
-  border-right: 1px solid #eee;
-  padding: 2%;
-`
-
-const ControlPanel = props => {
+export default props => {
   const edges = useStoreState(store => store.edges)
   // const elements = useStoreState(store => store.elements)
   const nodes = useStoreState(store => store.nodes)
@@ -51,5 +38,3 @@ const ControlPanel = props => {
     </ControlPanelContainer>
   )
 }
-
-export default ControlPanel
