@@ -8005,6 +8005,11 @@ mkdirp@^0.5.3, mkdirp@^0.5.5:
   dependencies:
     minimist "^1.2.5"
 
+moment@2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -9908,10 +9913,10 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
-react-flow-renderer@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/react-flow-renderer/-/react-flow-renderer-6.1.0.tgz#01fd34c15d61697042e12fc258760172798ef297"
-  integrity sha512-qRIkrgCCcjB0GkTlN3A7DwyM/e5pSMCXSVEk/iAoHDb7eNUsDhe7DuQ0nNab3tMuj9udz9mqC5Opt8Y/9mYfQQ==
+react-flow-renderer@6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/react-flow-renderer/-/react-flow-renderer-6.1.2.tgz#193eb88358e4802cd92d17f024ba6cb2411e373a"
+  integrity sha512-FNe2QXBpqYLtlEPQ0aS0EjR113bJQOKIGiwqQNJAkRM9HhrgiZg6vLprf/8gMhUkCxhK6ltf9FTa1N4aX8xKGQ==
   dependencies:
     "@welldone-software/why-did-you-render" "^4.3.2"
     classcat "^4.1.0"

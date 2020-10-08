@@ -5,8 +5,17 @@ import ReactFlow, {
   MiniMap,
   Controls,
   Background,
-  isNode
+  isNode,
+  ReactFlowProvider
 } from 'react-flow-renderer'
+import ControlPanel from './ControlPanel'
+
+import styled from '@emotion/styled'
+
+export const Container = styled.div`
+  width: 100%;
+  height: 600px;
+`
 
 const initialElements = [
   {
@@ -116,11 +125,16 @@ const initialElements = [
 const connectionLineStyle = { stroke: '#ddd' }
 const snapGrid = [16, 16]
 
-const Home = () => {
+export default () => {
   const [elements, setElements] = useState(initialElements)
   const onElementsRemove = elementsToRemove =>
     setElements(els => removeElements(elementsToRemove, els))
-  const onConnect = params => setElements(els => addEdge(params, els))
+  const onConnect = params => {
+    console.log('onConnect', params)
+    const newEdge = addEdge(params, elements)
+    console.log({ newEdge })
+    setElements(newEdge)
+  }
 
   const onNodeDragStart = (event, node) => console.log('drag start', node)
   const onNodeDragStop = (event, node) => console.log('drag stop', node)
@@ -145,48 +159,49 @@ const Home = () => {
   const onMoveEnd = transform => console.log('zoom/move end', transform)
 
   return (
-    <div style={{ height: 600 }}>
-      <ReactFlow
-        elements={elements}
-        onElementClick={onElementClick}
-        onElementsRemove={onElementsRemove}
-        onConnect={onConnect}
-        onPaneClick={onPaneClick}
-        onPaneScroll={onPaneScroll}
-        onPaneContextMenu={onPaneContextMenu}
-        onNodeDragStart={onNodeDragStart}
-        onNodeDragStop={onNodeDragStop}
-        onSelectionDragStart={onSelectionDragStart}
-        onSelectionDrag={onSelectionDrag}
-        onSelectionDragStop={onSelectionDragStop}
-        onSelectionContextMenu={onSelectionContextMenu}
-        onSelectionChange={onSelectionChange}
-        onMoveEnd={onMoveEnd}
-        onLoad={onLoad}
-        connectionLineStyle={connectionLineStyle}
-        snapToGrid={true}
-        snapGrid={snapGrid}>
-        <MiniMap
-          nodeStrokeColor={n => {
-            if (n.style?.background) return n.style.background
-            if (n.type === 'input') return '#0041d0'
-            if (n.type === 'output') return '#ff0072'
-            if (n.type === 'default') return '#1a192b'
+    <ReactFlowProvider>
+      <Container>
+        <ReactFlow
+          elements={elements}
+          onElementClick={onElementClick}
+          onElementsRemove={onElementsRemove}
+          onConnect={onConnect}
+          onPaneClick={onPaneClick}
+          onPaneScroll={onPaneScroll}
+          onPaneContextMenu={onPaneContextMenu}
+          onNodeDragStart={onNodeDragStart}
+          onNodeDragStop={onNodeDragStop}
+          onSelectionDragStart={onSelectionDragStart}
+          onSelectionDrag={onSelectionDrag}
+          onSelectionDragStop={onSelectionDragStop}
+          onSelectionContextMenu={onSelectionContextMenu}
+          onSelectionChange={onSelectionChange}
+          onMoveEnd={onMoveEnd}
+          onLoad={onLoad}
+          connectionLineStyle={connectionLineStyle}
+          snapToGrid={true}
+          snapGrid={snapGrid}>
+          <MiniMap
+            nodeStrokeColor={n => {
+              if (n.style?.background) return n.style.background
+              if (n.type === 'input') return '#0041d0'
+              if (n.type === 'output') return '#ff0072'
+              if (n.type === 'default') return '#1a192b'
 
-            return '#eee'
-          }}
-          nodeColor={n => {
-            if (n.style?.background) return n.style.background
+              return '#eee'
+            }}
+            nodeColor={n => {
+              if (n.style?.background) return n.style.background
 
-            return '#fff'
-          }}
-          borderRadius={2}
-        />
-        <Controls />
-        <Background color='#aaa' gap={16} />
-      </ReactFlow>
-    </div>
+              return '#fff'
+            }}
+            borderRadius={2}
+          />
+          <Controls />
+          <Background color='#aaa' gap={16} />
+        </ReactFlow>
+      </Container>
+      <ControlPanel />
+    </ReactFlowProvider>
   )
 }
-
-export default Home
