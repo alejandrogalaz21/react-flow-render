@@ -6,7 +6,7 @@ export const initialElements = [
     data: {
       label: (
         <>
-          Welcome to <strong>React Flow!</strong>
+          <strong>Inicio</strong>
         </>
       )
     },
@@ -17,7 +17,7 @@ export const initialElements = [
     data: {
       label: (
         <>
-          This is a <strong>default node</strong>
+          <strong>Entrevista</strong>
         </>
       )
     },
@@ -26,11 +26,7 @@ export const initialElements = [
   {
     id: '3',
     data: {
-      label: (
-        <>
-          This one has a <strong>custom style</strong>
-        </>
-      )
+      label: <>Confirmacion</>
     },
     position: { x: 400, y: 100 },
     style: { background: '#D6D5E6', color: '#333', border: '1px solid #222138', width: 180 }
@@ -39,46 +35,20 @@ export const initialElements = [
     id: '4',
     position: { x: 250, y: 200 },
     data: {
-      label: (
-        <>
-          You can find the docs on{' '}
-          <a
-            href='https://github.com/wbkd/react-flow'
-            target='_blank'
-            rel='noopener noreferrer'>
-            Github
-          </a>
-        </>
-      )
+      label: <>Seguimiento</>
     }
   },
   {
     id: '5',
     data: {
-      label: (
-        <>
-          Or check out the other <strong>examples</strong>
-        </>
-      )
+      label: <>Api 1</>
     },
     position: { x: 250, y: 325 }
   },
   {
-    id: '6',
-    type: 'output',
-    data: {
-      label: (
-        <>
-          An <strong>output node</strong>
-        </>
-      )
-    },
-    position: { x: 100, y: 480 }
-  },
-  {
     id: '7',
     type: 'output',
-    data: { label: 'Another output node' },
+    data: { label: <>Fin del Segumiento</> },
     position: { x: 400, y: 450 }
   },
   { id: 'e1-2', source: '1', target: '2', label: 'this is an edge label' },
@@ -91,14 +61,13 @@ export const initialElements = [
     arrowHeadType: 'arrowclosed',
     label: 'edge with arrow head'
   },
-  { id: 'e5-6', source: '5', target: '6', type: 'smoothstep', label: 'smooth step edge' },
   {
     id: 'e5-7',
     source: '5',
     target: '7',
     type: 'step',
     style: { stroke: '#f6ab6c' },
-    label: 'a step edge',
+    label: 'Fin',
     animated: true,
     labelStyle: { fill: '#f6ab6c', fontWeight: 700 }
   }
